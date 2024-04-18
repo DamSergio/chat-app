@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useAuthContext } from "../context/authContext";
+import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import useConversation from "../store/useConversation";
 

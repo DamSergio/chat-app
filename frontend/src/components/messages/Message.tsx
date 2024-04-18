@@ -1,6 +1,6 @@
 import * as React from "react";
 import MessageModel from "../../models/message.model";
-import { useAuthContext } from "../../context/authContext";
+import { useAuthContext } from "../../context/AuthContext";
 import useConversation from "../../store/useConversation";
 import useConversationProps from "../../models/useConversation.model";
 import { extractTime } from "../../utils/extractTime";
@@ -16,6 +16,7 @@ const Message = ({ message }: { message: MessageModel }) => {
   const chatClass = fromMe ? "chat-end" : "chat-start";
   const chatBubbleColor = fromMe ? "bg-blue-500" : "bg-gray-500";
   const formattedTime = extractTime(message.createdAt);
+  const shakeClass = message.isNew ? "shake" : "";
 
   return (
     <div className={`chat ${chatClass}`}>
@@ -25,7 +26,9 @@ const Message = ({ message }: { message: MessageModel }) => {
         </div>
       </div>
 
-      <div className={`chat-bubble text-white ${chatBubbleColor} pb-2`}>
+      <div
+        className={`chat-bubble text-white ${chatBubbleColor} ${shakeClass} pb-2`}
+      >
         {message.message}
       </div>
       <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">

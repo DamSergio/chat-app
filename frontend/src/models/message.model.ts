@@ -4,6 +4,7 @@ interface Message {
   receiverId: string;
   message: string;
   createdAt: string;
+  isNew: boolean | undefined;
 }
 
 export default Message;
